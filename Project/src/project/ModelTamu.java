@@ -17,10 +17,10 @@ public class ModelTamu {
     public int getBanyakData(){
         int jmlData=0;
         try{
-            String query = "Select * from data_buku"; //proses pengambilan data
+            String query = "Select * from data_buku"; 
             connector.statement = connector.koneksi.createStatement();
             ResultSet resultSet = connector.statement.executeQuery(query); //result isinya tabel belum berupa string
-            while(resultSet.next()){ //konversi tabel ke string
+            while(resultSet.next()){ //menghitung banyak baris pada database
                 jmlData++; 
             }
             connector.statement.close();
@@ -35,7 +35,7 @@ public class ModelTamu {
         try{
             int jmlData = 0; //menampung jumlah data sebanyak jumlah data yang ada, defaultnya
             String data[][] = new String[getBanyakData()][5]; // nemampung array. barisnya isinya di getBanyakData,kolomnya itu atribut
-            String query = "Select * from `data_buku`"; //proses penampilan data
+            String query = "Select * from `data_buku`"; 
             connector.statement = connector.koneksi.createStatement();
             ResultSet resultSet = connector.statement.executeQuery(query);// result isinya tabel belum berupa string
             while(resultSet.next()){ //konversi tabel ke string

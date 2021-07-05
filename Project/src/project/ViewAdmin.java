@@ -7,11 +7,9 @@ package project;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -43,13 +41,14 @@ public class ViewAdmin extends JFrame {
     JButton btnUpdate = new JButton("Update");
     JButton btnDelete = new JButton("Delete");
     JButton btnClear = new JButton("Clear");
+    JButton btnBack = new JButton("Menu Awal");
     
     public ViewAdmin(){
         tableModel = new DefaultTableModel(namaKolom,0);
         tabel = new JTable(tableModel);
         scrollPane = new JScrollPane(tabel);
         setLayout(null);
-        setSize(1000,600);
+        setSize(800,600);
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -71,6 +70,7 @@ public class ViewAdmin extends JFrame {
         add(btnUpdate);
         add(btnDelete);
         add(btnClear);
+        add(btnBack);
 
         scrollPane.setBounds(20, 35, 500, 345);
         
@@ -90,7 +90,9 @@ public class ViewAdmin extends JFrame {
         btnUpdate.setBounds(550, 345, 80, 20);
         btnDelete.setBounds(650, 315, 80, 20);
         btnClear.setBounds(650, 345, 80, 20);
+        btnBack.setBounds(20, 10, 100, 20);
         
+        //mengambil data dari tabel yang di klik
         tabel.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent me){
                 JTable target = (JTable)me.getSource();
@@ -125,18 +127,4 @@ public class ViewAdmin extends JFrame {
     public JTextField getFlokasi() {
         return flokasi;
     }
-
-      /*
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        JTable target = (JTable)e.getSource();
-        int baris = target.getSelectedRow(); // select a row
-        fjudul.setText(tabel.getValueAt(baris, 0).toString());
-        fpengarang.setText(tabel.getValueAt(baris, 1).toString());
-        fpenerbit.setText( tabel.getValueAt(baris, 2).toString());
-        ftahun.setText(tabel.getValueAt(baris, 3).toString());
-        flokasi.setText(tabel.getValueAt(baris, 4).toString()); 
-    }*/
-
-
 }

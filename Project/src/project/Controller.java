@@ -23,7 +23,8 @@ public class Controller {
     Controller(ViewAdmin viewAdmin, ModelAdmin modelAdmin) {
     this.modelAdmin = modelAdmin;
     this.viewAdmin = viewAdmin;
-
+    
+    //mengecek data yang ada dari database dan memasukkan ke dalam tabel
     if(modelAdmin.getBanyakData() != 0){
             String data[][] = modelAdmin.readData();
             viewAdmin.tabel.setModel((new JTable(data, viewAdmin.namaKolom)).getModel());
@@ -31,6 +32,7 @@ public class Controller {
             JOptionPane.showMessageDialog(null, "Data Tidak Ada");
         }
     
+    //aksi ketika menekan tombol tambah
     viewAdmin.btnTambah.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
@@ -50,6 +52,7 @@ public class Controller {
         }
     });
     
+    //aksi ketika menekan tombol update
     viewAdmin.btnUpdate.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
@@ -70,6 +73,7 @@ public class Controller {
         }
     });
     
+    //aksi ketika menekan tombol delete
     viewAdmin.btnDelete.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
@@ -86,6 +90,7 @@ public class Controller {
         }
     });
     
+    //aksi ketika menekan tombol clear
      viewAdmin.btnClear.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,6 +101,15 @@ public class Controller {
                 viewAdmin.flokasi.setText("");
             }
         });
+     
+     //aksi ketika menekan tombol Menu Utama
+     viewAdmin.btnBack.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewAdmin.dispose();
+                Home home = new Home();
+            }
+        });
     
     }
     
@@ -103,12 +117,23 @@ public class Controller {
     this.modelTamu = modelTamu;
     this.viewTamu = viewTamu;
     
+    //mengecek data yang ada dari database dan memasukkan ke dalam tabel
     if(modelTamu.getBanyakData() != 0){
             String data[][] = modelTamu.readData();
             viewTamu.tabel.setModel((new JTable(data, viewTamu.namaKolom)).getModel());
         } else{
             JOptionPane.showMessageDialog(null, "Data Kosong!!\nMinta Admin Untuk Menginput Data!!");
         }
+    
+    //aksi ketika menekan tombol Menu Utama
+    viewTamu.btnBack.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewTamu.dispose();
+                Home home = new Home();
+            }
+        });
+    
     }
     
 }

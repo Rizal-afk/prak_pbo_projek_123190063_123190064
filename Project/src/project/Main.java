@@ -30,12 +30,12 @@ public class Main {
         Home home = new Home();
     }
 }
+    //Halaman Utama
     class Home extends JFrame {
     Menu menu;
     
     JButton btnAdmin = new JButton("Login Admin");
     JButton btnTamu = new JButton("Pengunjung");
-    
     
     Home(){
         setTitle("Perpustakaan");
@@ -69,6 +69,7 @@ public class Main {
      
    }
 }
+    //Halaman Login
    class Login extends JFrame {
    final JTextField funame = new JTextField(10);
    final JPasswordField fpass = new JPasswordField(10);
@@ -112,7 +113,7 @@ public class Main {
                     mvc.Admin();
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "LOGIN FAILED");
+                    JOptionPane.showMessageDialog(null, "Login Gagal!");
                 }
             }
         });
